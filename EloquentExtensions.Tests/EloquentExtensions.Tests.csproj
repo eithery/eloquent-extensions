@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Machine.Specifications" Version="1.0.0"/>
+    <PackageReference Include="Machine.Specifications.Should" Version="1.0.0"/>
+    <PackageReference Include="Machine.Specifications.Runner.VisualStudio" Version="2.9.0"/>
+  </ItemGroup>
+</Project>

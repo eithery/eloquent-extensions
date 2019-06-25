@@ -4,7 +4,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EloquentExtensions", "EloquentExtensions\EloquentExtensions.csproj", "{7F2BC267-B599-41C6-9D74-90FAC33970FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EloquentExtensions.Tests", "EloquentExtensions.Tests\EloquentExtensions.Tests.csproj", "{5A1A72A4-F2F6-4D53-9D23-E16B9AC2E64B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EloquentExtensions.Specs", "EloquentExtensions.Specs\EloquentExtensions.Specs.csproj", "{5A1A72A4-F2F6-4D53-9D23-E16B9AC2E64B}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution

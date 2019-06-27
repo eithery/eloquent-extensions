@@ -10,7 +10,7 @@ namespace EloquentExtensions
     [Subject(typeof(StringExtensions))]
     public class StringExtensionsSpecs
     {
-        class IsBlankSpecs
+        class IsBlank
         {
             It should_be_true_for_blank_string = () =>
             {
@@ -33,7 +33,7 @@ namespace EloquentExtensions
         }
 
 
-        class IsNotBlankSpecs
+        class IsNotBlank
         {
             It should_be_true_for_non_blank_string = () =>
             {
@@ -55,7 +55,7 @@ namespace EloquentExtensions
             };
         }
 
-        class IsEmptySpecs
+        class IsEmpty
         {
             It should_be_true_for_empty_string = () =>
             {
@@ -77,7 +77,7 @@ namespace EloquentExtensions
             };
         }
 
-        class IsNotEmptySpecs
+        class IsNotEmpty
         {
             It should_be_true_for_non_empty_string = () =>
             {

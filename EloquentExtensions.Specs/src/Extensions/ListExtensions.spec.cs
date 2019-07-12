@@ -21,7 +21,7 @@ namespace EloquentExtensions
                 list.Count.ShouldEqual(4);
             };
 
-            It should_raise_an_exception_for_null_list = () =>
+            It raises_an_exception_for_null_list = () =>
             {
                 IList<int> list = null;
                 var exception = Catch.Exception(() => list.AddRange(new List<int>()));
@@ -35,7 +35,7 @@ namespace EloquentExtensions
                 list.ShouldBeEmpty();
             };
 
-            It should_raise_an_exception_for_null_argument = () =>
+            It raises_an_exception_for_null_argument = () =>
             {
                 IList<int> list = new List<int>();
                 var exception = Catch.Exception(() => list.AddRange((IEnumerable<int>)null));
@@ -71,7 +71,7 @@ namespace EloquentExtensions
                 list.Count.ShouldEqual(3);
             };
 
-            It should_raise_an_exception_for_null_list = () =>
+            It raises_an_exception_for_null_list = () =>
             {
                 IList<int> list = null;
                 var exception = Catch.Exception(() => list.AddRange(1, 2, 3, 4));

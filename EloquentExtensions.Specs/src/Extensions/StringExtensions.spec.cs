@@ -55,6 +55,7 @@ namespace EloquentExtensions
             };
         }
 
+
         class IsEmpty
         {
             It should_be_true_for_empty_string = () =>
@@ -76,6 +77,7 @@ namespace EloquentExtensions
                 str.IsEmpty().ShouldBeTrue();
             };
         }
+
 
         class IsNotEmpty
         {

@@ -2,7 +2,6 @@
 // Class ListExtensions
 // Contains extension methods for IList<T> interface
 //
-using System;
 using System.Collections.Generic;
 
 namespace EloquentExtensions
@@ -26,8 +25,7 @@ namespace EloquentExtensions
 
         private static void DoAddRange<T>(this IList<T> list, IEnumerable<T> items)
         {
-            if(list == null)
-                throw new ArgumentNullException();
+            Guard.NotNull(list, nameof(list));
 
             if (list is List<T>)
                 ((List<T>)list).AddRange(items);

@@ -100,5 +100,112 @@ namespace EloquentExtensions
                 str.IsNotEmpty().ShouldBeFalse();
             };
         }
+
+
+        class IsEquivalentOf
+        {
+            class When_strings_are_case_sensitive
+            {
+                class And_trimmed
+                {
+                    It considered_to_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("some string", ignoreCase: false).ShouldBeTrue();
+                        "some string".IsEquivalentOf("\r\n some string \t ", ignoreCase: false).ShouldBeTrue();
+                        "  a   ".IsEquivalentOf("a", ignoreCase: false).ShouldBeTrue();
+                    };
+
+                    It considered_to_not_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("Some string", ignoreCase: false).ShouldBeFalse();
+                        "abba".IsEquivalentOf("ABBA", ignoreCase: false).ShouldBeFalse();
+                        "  abba \r\n".IsEquivalentOf("ABBA", ignoreCase: false).ShouldBeFalse();
+                        "ABBA".IsEquivalentOf("  abba \r\n", ignoreCase: false).ShouldBeFalse();
+                    };
+                }
+
+
+                class And_not_trimmed
+                {
+                    It considered_to_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("some string", ignoreCase: false, trim: false).ShouldBeTrue();
+                    };
+
+                    It considered_to_not_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("\r\n some string \t ", ignoreCase: false, trim: false).ShouldBeFalse();
+                        "  a   ".IsEquivalentOf("a", ignoreCase: false, trim: false).ShouldBeFalse();
+                        "abba".IsEquivalentOf("ABBA", ignoreCase: false, trim: false).ShouldBeFalse();
+                        "  abba \r\n".IsEquivalentOf("ABBA", ignoreCase: false, trim: false).ShouldBeFalse();
+                        "ABBA".IsEquivalentOf("  abba \r\n", ignoreCase: false, trim: false).ShouldBeFalse();
+                    };
+                }
+            }
+
+
+            class When_strings_are_case_insensitive
+            {
+                class And_trimmed
+                {
+                    It considered_to_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("some string").ShouldBeTrue();
+                        "some string".IsEquivalentOf("\r\n some string \t ").ShouldBeTrue();
+                        "  a   ".IsEquivalentOf("a").ShouldBeTrue();
+                        "abba".IsEquivalentOf("ABBA").ShouldBeTrue();
+                        "  abba \r\n".IsEquivalentOf("ABBA").ShouldBeTrue();
+                        "ABBA".IsEquivalentOf("  abba \r\n").ShouldBeTrue();
+                    };
+
+                    It considered_to_not_be_equivalent = () => "one".IsEquivalentOf("one.").ShouldBeFalse();
+                }
+
+
+                class And_not_trimmed
+                {
+                    It considered_to_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("some string", trim: false).ShouldBeTrue();
+                        "abba".IsEquivalentOf("ABBA", trim: false).ShouldBeTrue();
+                    };
+
+                    It considered_to_not_be_equivalent = () =>
+                    {
+                        "some string".IsEquivalentOf("\r\n some string \t ", trim: false).ShouldBeFalse();
+                        "  a   ".IsEquivalentOf("a", trim: false).ShouldBeFalse();
+                        "  abba \r\n".IsEquivalentOf("ABBA", trim: false).ShouldBeFalse();
+                        "ABBA".IsEquivalentOf("  abba \r\n", trim: false).ShouldBeFalse();
+                    };
+                }
+            }
+
+
+            class For_blank_and_null_strings
+            {
+                It considered_to_be_equivalent = () =>
+                {
+                    "".IsEquivalentOf("").ShouldBeTrue();
+                    "".IsEquivalentOf(null).ShouldBeTrue();
+                   "".IsEquivalentOf(null, trim: false).ShouldBeTrue();
+                    "  \r\n".IsEquivalentOf("").ShouldBeTrue();
+                    "".IsEquivalentOf(" \r\n ").ShouldBeTrue();
+                    ((string)null).IsEquivalentOf("").ShouldBeTrue();
+                    ((string)null).IsEquivalentOf("", trim: false).ShouldBeTrue();
+                    ((string)null).IsEquivalentOf(" \n \r").ShouldBeTrue();
+                    "  \r\n".IsEquivalentOf(null).ShouldBeTrue();
+                    ((string)null).IsEquivalentOf(null).ShouldBeTrue();
+                    ((string)null).IsEquivalentOf(null, trim: false).ShouldBeTrue();
+                };
+
+                It considered_to_not_be_equivalent = () =>
+                {
+                    "  \r\n".IsEquivalentOf("", trim: false).ShouldBeFalse();
+                    "".IsEquivalentOf(" \r\n ", trim: false).ShouldBeFalse();
+                    ((string)null).IsEquivalentOf(" \n \r", trim: false).ShouldBeFalse();
+                    "  \r\n".IsEquivalentOf(null, trim: false).ShouldBeFalse();
+                };
+            }
+        }
     }
 }

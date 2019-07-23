@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class Guard
 // Performs some checks of method arguments
 //

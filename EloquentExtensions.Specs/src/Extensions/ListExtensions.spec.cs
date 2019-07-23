@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class ListExtensionsSpecs
 // Contains unit tests for ListExtensions class
 //

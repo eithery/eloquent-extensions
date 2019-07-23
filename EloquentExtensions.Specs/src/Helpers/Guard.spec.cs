@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class GuardSpecs
 // Contains unit tests for Guard class
 //

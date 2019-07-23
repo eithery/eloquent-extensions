@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class ListExtensions
 // Contains extension methods for IList<T> interface
 //

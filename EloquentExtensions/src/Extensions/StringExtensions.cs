@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class StringExtensions
 // Contains extension methods for System.String class
 //

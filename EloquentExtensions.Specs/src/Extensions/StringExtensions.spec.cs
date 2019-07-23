@@ -1,4 +1,4 @@
-// (C) Eithery
+// Eithery: Eloquent Extensions
 // Class StringExtensionsSpecs
 // Contains unit tests for StringExtensions class
 //

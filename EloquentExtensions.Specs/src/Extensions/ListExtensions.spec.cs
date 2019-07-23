@@ -1,6 +1,6 @@
 // Eithery: Eloquent Extensions
 // Class ListExtensionsSpecs
-// Contains unit tests for ListExtensions class
+// Contains unit tests/specs for ListExtensions class
 //
 using System;
 using System.Collections.Generic;

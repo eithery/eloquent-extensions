@@ -1,6 +1,6 @@
 // Eithery: Eloquent Extensions
 // Class GuardSpecs
-// Contains unit tests for Guard class
+// Contains unit tests/specs for Guard class
 //
 using System;
 using Machine.Specifications;

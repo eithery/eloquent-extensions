@@ -1,6 +1,6 @@
 // Eithery: Eloquent Extensions
 // Class StringExtensionsSpecs
-// Contains unit tests for StringExtensions class
+// Contains unit tests/specs for StringExtensions class
 //
 using System;
 using Machine.Specifications;

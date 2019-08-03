@@ -1,11 +1,10 @@
 language: csharp
 mono: none
-dotnet: 2.2.108
+sudo: required
+dist: xenial
+dotnet: 2.2
 solution: eloquent_extensions.sln
-
-install:
-  - dotnet restore
-
 script:
+  - dotnet restore
   - dotnet build
   - dotnet test

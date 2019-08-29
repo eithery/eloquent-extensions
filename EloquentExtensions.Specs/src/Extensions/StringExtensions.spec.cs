@@ -207,5 +207,51 @@ namespace EloquentExtensions
                 };
             }
         }
+
+
+        class Words
+        {
+            It splits_a_string_to_words = () =>
+            {
+                const string str = "'Oh , you can't help that,'\r\n said the Cat: 'we're all mad here. I'm mad.";
+                string[] words = { "Oh", "you", "can't", "help", "that", "said", "the", "Cat", "we're",
+                    "all", "mad", "here", "I'm", "mad"};
+                str.Words().ShouldEqual(words);
+
+                "Barnes & Noble \t\n".Words().ShouldEqual(new []{ "Barnes", "Noble" });
+            };
+
+            It splits_strings_with_dashes = () =>
+            {
+                "two-word phrase".Words().ShouldEqual(new []{ "two-word", "phrase" });
+                "two - word phrase".Words().ShouldEqual(new []{ "two", "word", "phrase" });
+                "two- word phrase".Words().ShouldEqual(new []{ "two", "word", "phrase" });
+            };
+
+            It splits_string_with_underscores = () =>
+            {
+                "my_name_is_Gwen".Words().ShouldEqual(new []{ "my_name_is_Gwen" });
+                "my_name _is _ Gwen".Words().ShouldEqual(new []{ "my_name", "_is", "_", "Gwen" });
+            };
+
+            It splits_strings_with_double_quotes = () =>
+                "\"Quoted\" \"str\"ing\"".Words().ShouldEqual(new []{ "Quoted", "str\"ing" });
+
+            It returns_an_empty_collection_for_a_string_without_words = () => ",: \r\n -, .".Words().ShouldBeEmpty();
+
+            It returns_an_empty_collection_for_a_blank_string = () =>
+            {
+                "".Words().ShouldBeEmpty();
+                "   ".Words().ShouldBeEmpty();
+                " \t  \r\n ".Words().ShouldBeEmpty();
+            };
+
+            It raises_an_exception_for_null_string = () =>
+            {
+                string str = null;
+                var exception = Catch.Exception(() => str.Words());
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+        }
     }
 }

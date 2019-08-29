@@ -3,6 +3,9 @@
 // Contains extension methods for System.String class
 //
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace EloquentExtensions
 {
@@ -59,5 +62,44 @@ namespace EloquentExtensions
             var comparisonType = ignoreCase ? StringComparison.InvariantCultureIgnoreCase : StringComparison.InvariantCulture;
             return string.Compare(str, value, comparisonType) == 0;
         }
+
+
+        /// <summary>
+        /// Converts the first character of a string to upper case
+        /// </summary>
+        /// <param name="str">The string to convert</param>
+        /// <returns>The converted string</returns>
+        public static string UpperFirst(this string str)
+        {
+            return null;
+        }
+
+
+        /// <summary>
+        /// Converts the first character of string to upper case and the remaining to lower case
+        /// </summary>
+        /// <param name="str">The string to capitalize</param>
+        /// <returns>The capitalized string</returns>
+        public static string Capitalize(this string str) => UpperFirst(str.ToLower());
+
+
+        /// <summary>
+        /// Converts a string to camel case
+        /// </summary>
+        /// <param name="str">The string to convert</param>
+        /// <returns>The camel cased string</returns>
+        public static string Camelize(this string str)
+        {
+            return null;
+        }
+
+
+        /// <summary>
+        /// Splits a string into an array of its words
+        /// </summary>
+        /// <param name="text">The string to split</param>
+        /// <returns>The words of the given string</returns>
+        public static IEnumerable<string> Words(this string str) =>
+            Regex.Matches(str, @"\w+[^\s]*\w+|\w").OfType<Match>().Select(m => m.Value);
     }
 }

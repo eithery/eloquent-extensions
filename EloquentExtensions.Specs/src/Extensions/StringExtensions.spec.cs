@@ -266,7 +266,7 @@ namespace EloquentExtensions
                 "b2".UpperFirst().ShouldEqual("B2");
             };
 
-            It converts_one_character_strings = () =>
+            It converts_one_character_strings_to_uppercase = () =>
             {
                 "a".UpperFirst().ShouldEqual("A");
                 ".".UpperFirst().ShouldEqual(".");
@@ -282,6 +282,39 @@ namespace EloquentExtensions
             {
                 string str = null;
                 var exception = Catch.Exception(() => str.UpperFirst());
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+        }
+
+
+        class Capitalize
+        {
+            It converts_the_first_character_to_uppercase_and_remained_to_lowercase = () =>
+            {
+                "GWEN".Capitalize().ShouldEqual("Gwen");
+                "gweN".Capitalize().ShouldEqual("Gwen");
+                "gwen is the good CAT".Capitalize().ShouldEqual("Gwen is the good cat");
+                "123".Capitalize().ShouldEqual("123");
+                "a1 B2".Capitalize().ShouldEqual("A1 b2");
+                "b2".Capitalize().ShouldEqual("B2");
+            };
+
+            It converts_one_character_strings_to_uppercase = () =>
+            {
+                "a".Capitalize().ShouldEqual("A");
+                ".".Capitalize().ShouldEqual(".");
+            };
+
+            It skips_an_empty_string = () =>
+            {
+                "".Capitalize().ShouldEqual("");
+                "   ".Capitalize().ShouldEqual("   ");
+            };
+
+            It raises_an_exception_for_null_string = () =>
+            {
+                string str = null;
+                var exception = Catch.Exception(() => str.Capitalize());
                 exception.ShouldBeOfExactType<ArgumentNullException>();
             };
         }

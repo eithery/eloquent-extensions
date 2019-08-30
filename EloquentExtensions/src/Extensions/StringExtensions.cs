@@ -81,7 +81,11 @@ namespace EloquentExtensions
         /// </summary>
         /// <param name="str">The string to capitalize</param>
         /// <returns>The capitalized string</returns>
-        public static string Capitalize(this string str) => UpperFirst(str.ToLower());
+        public static string Capitalize(this string str)
+        {
+            Guard.NotNull(str, nameof(str));
+            return UpperFirst(str.ToLower());
+        }
 
 
         /// <summary>

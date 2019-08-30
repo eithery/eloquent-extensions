@@ -253,5 +253,37 @@ namespace EloquentExtensions
                 exception.ShouldBeOfExactType<ArgumentNullException>();
             };
         }
+
+
+        class UpperFirst
+        {
+            It converts_the_first_character_to_upper_case = () =>
+            {
+                "gwen".UpperFirst().ShouldEqual("Gwen");
+                "GWEN".UpperFirst().ShouldEqual("GWEN");
+                "-value".UpperFirst().ShouldEqual("-value");
+                "a1 b2".UpperFirst().ShouldEqual("A1 b2");
+                "b2".UpperFirst().ShouldEqual("B2");
+            };
+
+            It converts_one_character_strings = () =>
+            {
+                "a".UpperFirst().ShouldEqual("A");
+                ".".UpperFirst().ShouldEqual(".");
+            };
+
+            It skips_an_empty_string = () =>
+            {
+                "".UpperFirst().ShouldEqual("");
+                "   ".UpperFirst().ShouldEqual("   ");
+            };
+
+            It raises_an_exception_for_null_string = () =>
+            {
+                string str = null;
+                var exception = Catch.Exception(() => str.UpperFirst());
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+        }
     }
 }

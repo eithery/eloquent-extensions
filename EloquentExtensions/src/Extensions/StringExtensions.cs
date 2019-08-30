@@ -71,7 +71,8 @@ namespace EloquentExtensions
         /// <returns>The converted string</returns>
         public static string UpperFirst(this string str)
         {
-            return null;
+            Guard.NotNull(str, nameof(str));
+            return str.Length > 0 ? str.Substring(0, 1).ToUpper() + str.Substring(1) : str;
         }
 
 

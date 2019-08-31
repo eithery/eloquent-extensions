@@ -108,6 +108,7 @@ namespace EloquentExtensions
         /// Splits a string into an array of its words
         /// </summary>
         /// <param name="text">The string to split</param>
+        /// <param name="pattern">Regexp pattern</param>
         /// <returns>The words of the given string</returns>
         public static IEnumerable<string> Words(this string str, string pattern=@"\w+[^\s]*\w+|\w+") =>
             Regex.Matches(str, pattern).OfType<Match>().Select(m => m.Value);

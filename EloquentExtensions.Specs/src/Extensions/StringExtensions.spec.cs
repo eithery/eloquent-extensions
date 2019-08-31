@@ -237,6 +237,12 @@ namespace EloquentExtensions
             It splits_strings_with_double_quotes = () =>
                 "\"Quoted\" \"str\"ing\"".Words().ShouldEqual(new []{ "Quoted", "str\"ing" });
 
+            It accepts_a_custom_regexp_pattern = () =>
+            {
+                "... --- ...".Words(@"[.\-]+").ShouldEqual(new []{ "...", "---", "..." });
+                "ASA123fjjf456oJJJKD789".Words(@"\d+").ShouldEqual(new []{ "123", "456", "789" });
+            };
+
             It returns_an_empty_collection_for_a_string_without_words = () => ",: \r\n -, .".Words().ShouldBeEmpty();
 
             It returns_an_empty_collection_for_a_blank_string = () =>
@@ -250,6 +256,12 @@ namespace EloquentExtensions
             {
                 string str = null;
                 var exception = Catch.Exception(() => str.Words());
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+
+            It raises_an_exception_for_null_regexp_pattern = () =>
+            {
+                var exception = Catch.Exception(() => "some string".Words(pattern: null));
                 exception.ShouldBeOfExactType<ArgumentNullException>();
             };
         }

@@ -318,5 +318,40 @@ namespace EloquentExtensions
                 exception.ShouldBeOfExactType<ArgumentNullException>();
             };
         }
+
+
+        class Camelize
+        {
+            It converts_strings_to_camel_case = () =>
+            {
+                "Foo Bar".Camelize().ShouldEqual("fooBar");
+                "--foo--bar--".Camelize().ShouldEqual("fooBar");
+                "--FOO--BAR--".Camelize().ShouldEqual("fooBar");
+                "__foo__bar__".Camelize().ShouldEqual("fooBar");
+                "__FOO__BAR__".Camelize().ShouldEqual("fooBar");
+                "FooBar".Camelize().ShouldEqual("foobar");
+                "once apon a time".Camelize().ShouldEqual("onceAponATime");
+                "created_at".Camelize().ShouldEqual("createdAt");
+                "A".Camelize().ShouldEqual("a");
+                "fooBar".Camelize().ShouldEqual("foobar");
+                "abba".Camelize().ShouldEqual("abba");
+                "s".Camelize().ShouldEqual("s");
+                "acuna\"matata".Camelize().ShouldEqual("acunaMatata");
+                "O'Henry".Camelize().ShouldEqual("oHenry");
+            };
+
+            It skips_an_empty_string = () =>
+            {
+                "".Camelize().ShouldEqual("");
+                "   ".Camelize().ShouldEqual("");
+            };
+
+            It raises_an_exception_for_null_string = () =>
+            {
+                string str = null;
+                var exception = Catch.Exception(() => str.Camelize());
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+        }
     }
 }

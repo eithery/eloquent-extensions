@@ -95,7 +95,12 @@ namespace EloquentExtensions
         /// <returns>The camel cased string</returns>
         public static string Camelize(this string str)
         {
-            return null;
+            var parts = str.Words(@"[A-Za-z\d]+").Select((word, index) =>
+            {
+                word = word.ToLower();
+                return index > 0 ? word.UpperFirst() : word;
+            });
+            return string.Join("", parts);
         }
 
 
@@ -104,7 +109,7 @@ namespace EloquentExtensions
         /// </summary>
         /// <param name="text">The string to split</param>
         /// <returns>The words of the given string</returns>
-        public static IEnumerable<string> Words(this string str) =>
-            Regex.Matches(str, @"\w+[^\s]*\w+|\w").OfType<Match>().Select(m => m.Value);
+        public static IEnumerable<string> Words(this string str, string pattern=@"\w+[^\s]*\w+|\w+") =>
+            Regex.Matches(str, pattern).OfType<Match>().Select(m => m.Value);
     }
 }

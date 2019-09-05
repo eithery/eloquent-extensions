@@ -16,7 +16,7 @@ namespace EloquentExtensions
         /// <param name="inherit">Determines whether to search specified member's
         /// inheritance chain to find the attributes</param>
         /// <returns>A string display name</returns>
-        public static string DisplayName(this MemberInfo memberInfo, bool inherit=false)
+        public static string GetDisplayName(this MemberInfo memberInfo, bool inherit=false)
         {
             var attr = memberInfo.GetAttribute<DisplayNameAttribute>(inherit);
             return attr?.DisplayName ?? memberInfo.Name;

@@ -14,6 +14,10 @@ namespace EloquentExtensions
     {
         [Browsable(false)]
         public string Name { get; set; }
+
+        internal string InternalName { get; set; }
+
+        private string PrivateName { get; set; }
     }
 
 

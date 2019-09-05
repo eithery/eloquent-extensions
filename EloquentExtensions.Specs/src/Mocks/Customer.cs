@@ -22,6 +22,13 @@ namespace EloquentExtensions
         public static int TotalCount { get; }
 
         private static string PrivateStaticProperty { get; set ; }
+
+        private static string SetterOnlyProperty
+        {
+            set => field = null;
+        }
+
+        private static string field;
     }
 
 

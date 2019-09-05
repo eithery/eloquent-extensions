@@ -26,11 +26,14 @@ namespace EloquentExtensions
                 GetProperty<string>("Length").IsStatic().ShouldBeFalse();
             };
 
-            It allows_non_public_properties = () =>
+            It supports_non_public_properties = () =>
             {
                 GetProperty<Customer>("PrivateStaticProperty").IsStatic().ShouldBeTrue();
                 GetProperty<Customer>("InternalName").IsStatic().ShouldBeFalse();
             };
+
+            It supports_properties_with_setter_only = () =>
+                GetProperty<Customer>("SetterOnlyProperty").IsStatic().ShouldBeTrue();
 
             It raises_an_error_for_null_property_info = () =>
             {

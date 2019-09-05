@@ -11,8 +11,8 @@ namespace EloquentExtensions
         public static bool IsStatic(this PropertyInfo propertyInfo)
         {
             Guard.NotNull(propertyInfo, nameof(propertyInfo));
-            var getMethod = propertyInfo.GetGetMethod(true);
-            return getMethod.IsStatic;
+            var method = propertyInfo.GetGetMethod(true) ?? propertyInfo.GetSetMethod(true);
+            return method.IsStatic;
         }
     }
 }

@@ -18,6 +18,10 @@ namespace EloquentExtensions
         internal string InternalName { get; set; }
 
         private string PrivateName { get; set; }
+
+        public static int TotalCount { get; }
+
+        private static string PrivateStaticProperty { get; set ; }
     }
 
 

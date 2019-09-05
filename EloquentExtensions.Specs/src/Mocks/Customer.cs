@@ -20,6 +20,7 @@ namespace EloquentExtensions
     [Browsable(true)]
     internal class Individual : Customer
     {
+        [DisplayName("Customer last name")]
         public string LastName { get; set; }
     }
 }

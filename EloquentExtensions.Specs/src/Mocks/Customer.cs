@@ -13,7 +13,21 @@ namespace EloquentExtensions
     internal class Customer
     {
         [Browsable(false)]
-        public string Name { get; set; }
+        public string Name
+        {
+            get => this.name;
+            set => this.name = value;
+        }
+
+        public Address Address { get; set; }
+
+        public int Age { get; set; }
+
+        public string PersonalManager { get; set; }
+
+        public bool? IsFinraMember { get; set; }
+
+        public ActivationMode ActivationMode { get; set; }
 
         internal string InternalName { get; set; }
 
@@ -28,7 +42,11 @@ namespace EloquentExtensions
             set => field = null;
         }
 
+        private static string Field => field;
+
         private static string field;
+
+        internal string name;
     }
 
 

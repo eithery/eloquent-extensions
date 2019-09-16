@@ -37,7 +37,7 @@ namespace EloquentExtensions.Specs
                 var thread = Thread.CurrentThread;
                 var currentCulture = thread.CurrentCulture;
                 thread.CurrentCulture = new CultureInfo("ru-RU");
-                date.ToShortDateString(invariantCulture: false).ShouldEqual("24.03.1953");
+                date.ToShortDateString(invariantCulture: false).ShouldEqual(date.Value.ToString("d"));
                 thread.CurrentCulture = currentCulture;
             };
         }

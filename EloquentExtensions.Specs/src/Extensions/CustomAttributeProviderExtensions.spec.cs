@@ -8,10 +8,10 @@ using System.Linq;
 using System.Reflection;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(nameof(CustomAttributeProviderExtensions))]
-    public class CustomAttributeProviderExtensionsSpecs
+    public class CustomAttributeProviderExtensionsSpec
     {
         static PropertyInfo nameProperty;
 

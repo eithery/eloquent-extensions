@@ -4,7 +4,7 @@
 //
 using System;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [AttributeUsage(AttributeTargets.All, AllowMultiple=true)]
     internal class SampleAttribute : Attribute

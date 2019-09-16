@@ -5,10 +5,10 @@
 using System;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(StringExtensions))]
-    public class StringExtensionsSpecs
+    public class StringExtensionsSpec
     {
         class IsBlank
         {

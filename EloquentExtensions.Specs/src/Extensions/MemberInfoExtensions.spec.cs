@@ -6,10 +6,10 @@ using System;
 using System.Reflection;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(nameof(MemberInfoExtensions))]
-    public class MemberInfoExtensionsSpecs
+    public class MemberInfoExtensionsSpec
     {
         class GetDisplayName
         {

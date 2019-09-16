@@ -6,10 +6,10 @@ using System;
 using System.Collections.Generic;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(ListExtensions))]
-    public class ListExtensionsSpecs
+    public class ListExtensionsSpec
     {
         class AddRange_Enumerable
         {

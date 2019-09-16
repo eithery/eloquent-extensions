@@ -2,7 +2,7 @@
 // Class Address
 // A dummy address domain model class used for test purposes
 //
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     public class Address
     {

@@ -7,10 +7,10 @@ using System.Reflection;
 using System.Threading;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(PropertyInfoExtensions))]
-    public class PropertyInfoExtensionsSpecs
+    public class PropertyInfoExtensionsSpec
     {
         class IsStatic
         {

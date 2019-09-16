@@ -8,10 +8,10 @@ using System.Linq;
 using System.Xml.Serialization;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(EnumExtensions))]
-    public class EnumExtensionsSpecs
+    public class EnumExtensionsSpec
     {
         class GetAttributes
         {

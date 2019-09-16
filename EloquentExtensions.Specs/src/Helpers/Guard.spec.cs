@@ -5,10 +5,10 @@
 using System;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(Guard))]
-    public class GuardSpecs
+    public class GuardSpec
     {
         private const string PARAMETER_NAME = "Parameter name: parameterName";
         private const string VALUE_CANNOT_BE_NULL = "Value cannot be null.";

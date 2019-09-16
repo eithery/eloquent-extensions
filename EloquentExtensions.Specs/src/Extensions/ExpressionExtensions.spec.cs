@@ -6,10 +6,10 @@ using System;
 using System.Linq.Expressions;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(ExpressionExtensions))]
-    public class ExpressionExtensionsSpecs
+    public class ExpressionExtensionsSpec
     {
         class GetPropertyName
         {

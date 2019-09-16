@@ -7,10 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(nameof(TypeExtensions))]
-    public class TypeExtensionsSpecs
+    public class TypeExtensionsSpec
     {
         class HasProperty
         {

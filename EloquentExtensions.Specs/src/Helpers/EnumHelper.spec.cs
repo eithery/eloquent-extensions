@@ -5,10 +5,10 @@
 using System;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(EnumHelper))]
-    public class EnumHelperSpecs
+    public class EnumHelperSpec
     {
         class GetNames
         {

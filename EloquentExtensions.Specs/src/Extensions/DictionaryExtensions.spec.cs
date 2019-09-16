@@ -6,10 +6,10 @@ using System;
 using System.Collections.Generic;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(DictionaryExtensions))]
-    public class DictionaryExtensionsSpecs
+    public class DictionaryExtensionsSpec
     {
         class Merge
         {

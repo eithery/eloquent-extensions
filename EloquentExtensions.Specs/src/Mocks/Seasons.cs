@@ -2,7 +2,7 @@
 // Enum Seasons
 // A dummy enumeration used for test purposes
 //
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     public enum Seasons
     {

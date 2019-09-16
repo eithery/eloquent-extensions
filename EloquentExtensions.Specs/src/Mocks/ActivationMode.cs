@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [DataContract]
     [DisplayName("Available activation modes")]

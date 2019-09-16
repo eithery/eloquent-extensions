@@ -4,7 +4,7 @@
 //
 using System.ComponentModel;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [DisplayName("Dummy customer")]
     [Sample(DummyProperty="Sample1")]

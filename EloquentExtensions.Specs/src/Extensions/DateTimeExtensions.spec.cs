@@ -7,10 +7,10 @@ using System.Globalization;
 using System.Threading;
 using Machine.Specifications;
 
-namespace EloquentExtensions
+namespace EloquentExtensions.Specs
 {
     [Subject(typeof(DateTimeExtensions))]
-    public class DateTimeExtensionsSpecs
+    public class DateTimeExtensionsSpec
     {
         class ToShortDateString
         {

@@ -96,5 +96,53 @@ namespace EloquentExtensions.Specs
                 list.ShouldBeEmpty();
             };
         }
+
+
+        class AddIf
+        {
+            It adds_an_element_to_the_list_when_predicate_is_true = () =>
+            {
+                var intList = new List<int> { 1, 2, 3, 4 };
+                var added = intList.AddIf(5, (list, el) => !list.Contains(el));
+                added.ShouldBeTrue();
+                intList.ShouldContain(5);
+                intList.Count.ShouldEqual(5);
+
+                var strList = new List<string> { "one", "two" };
+                added = strList.AddIf("three", (list, el) => list.Count < 3);
+                added.ShouldBeTrue();
+                strList.ShouldContain("three");
+                strList.Count.ShouldEqual(3);
+            };
+
+            It does_not_add_an_element_when_predicate_is_false = () =>
+            {
+                var intList = new List<int> { 1, 2, 3, 4 };
+                var added = intList.AddIf(2, (list, el) => !list.Contains(el));
+                added.ShouldBeFalse();
+                intList.ShouldContain(2);
+                intList.Count.ShouldEqual(4);
+
+                var strList = new List<string> { "one", "two" };
+                added = strList.AddIf("three", (list, el) => list.Count < 2);
+                added.ShouldBeFalse();
+                strList.ShouldNotContain("three");
+                strList.Count.ShouldEqual(2);
+            };
+
+            It raises_en_exception_for_null_list = () =>
+            {
+                List<int> list = null;
+                var exception = Catch.Exception(() => list.AddIf(2, (l, el) => true));
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+
+            It raises_an_exception_for_null_predicate = () =>
+            {
+                var list = new List<int> { 1, 2, 3 };
+                var exception = Catch.Exception(() => list.AddIf(5, null));
+                exception.ShouldBeOfExactType<ArgumentNullException>();
+            };
+        }
     }
 }

@@ -1,5 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Title>Eloquent Extensions</Title>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Description>.NET multi-palform library containing the set of convenient extension methods for various .NET types and collections</Description>
+    <Authors>Michael Protsenko</Authors>
+    <Product>Eloquent Extensions</Product>
+    <Copyright>Copyright &#169; Michael Protsenko</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/eithery/eloquent-extensions</PackageProjectUrl>
+    <PackageTags>.net; extensions</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/eithery/eloquent-extensions</RepositoryUrl>
   </PropertyGroup>
 </Project>
